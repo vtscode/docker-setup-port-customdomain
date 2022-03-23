@@ -3,13 +3,13 @@ services:
   foldera:
     build: foldera
     environment:
-      VIRTUAL_HOST: a.domain.com
+      VIRTUAL_HOST: a.customdomain.com
     restart: always
 
   folderb:
     build: folderb
     environment:
-      VIRTUAL_HOST: b.domain.com
+      VIRTUAL_HOST: b.customdomain.com
     restart: always
 
   nginx-proxy:
