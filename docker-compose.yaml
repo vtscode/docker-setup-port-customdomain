@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  foldera:
+    build: foldera
+    environment:
+      VIRTUAL_HOST: a.domain.com
+    restart: always
+
+  folderb:
+    build: folderb
+    environment:
+      VIRTUAL_HOST: b.domain.com
+    restart: always
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+    restart: always
+    privileged: true
